@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script>
+         document.addEventListener(`DOMContentLoaded`, function() {
+        document.querySelector("#new-task").onsubmit = function() {
+            const li= document.createElement(`li`);
+            let task_text= document.querySelector(`#task`).value;
+            let new_task_html = ` <span> ${task_text} </span>
+            <button class="remove"> Remove </button> `;
+            li.innerHTML = new_task_html       
+            document.querySelector("#task_list").append(li);
+            document.querySelector("#task").value = ``;
+            return false;
+
+        }
+document.addEventListener(`click`, function(event){
+    element= event.target;
+    if(element.className === `remove`) {
+        element.parentElement.remove();
+
+    }
+})
+
+
+         });
+      </script>
+      <div id="myID" class="head2">
+      <h1 style="text-align:center;">Todo List</h1>
+      </div>
+<style>
+ body {
+    margin: 0;
+    min-width: 250px;
+ }
+
+*{
+   box-sizing: border-box;
+}
+ul {
+   margin: 0;
+   padding: 0;
+}
+ul li {
+   cursor: pointer;
+   position: relative;
+   padding: 12px 8px 12px 40px;
+   background: #eee;
+   font-size:18px;
+   transition:0.2;
+
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+ul li:nth-child(odd) {
+  background: #33e1ee;
+}
+ul li:nth-child(even) {
+  background: #2838d1;
+}
+ul li:hover {
+  background: rgb(82, 78, 78);
+}
+input {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 100%;
+  padding: 15px;
+  float: left;
+  font-size: 16px;
+}
+
+.header {
+  background-color:rgb(0, 162, 255);
+  padding: 10px 10px;
+  color: rgb(12, 0, 0);
+  ;
+}
+.head2 {
+  background-color:rgb(10, 0, 0);
+  padding: 1px 2px;
+  color: rgb(248, 242, 242);
+  ;
+}
+
+</style>
+
+
+
+
+
+      <title>Todo List</title>
+   </div>
+   </head>
+   <body><div id="Mydiv" class="header"><h1 style="background-color:rgb(0, 162, 255); ">Tasks:</h1>
+   </div>
+      <ul id="task_list">  
+      </ul>
+      <form id="new-task">
+         <input id="task" autocomplete="off" autofocus placeholder="New Task" type="Text">
+         <input id="submit" type="Submit">
+      </form>
+</body>
+</html>
+
